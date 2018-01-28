@@ -1,0 +1,82 @@
+﻿@model Assignment7.Controllers.TrackWithDetails
+
+@{
+    ViewBag.Title = "Track details";
+}
+
+<h2>Details for track @Model.Name</h2>
+
+<div>
+    @*<h4>TrackWithDetails</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composers)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AudioUrl)
+        </dt>
+
+        <dd>
+            @{ var alt = $"{Model.Name} {Model.Composers}"; }
+            <audio src="/clip/@Model.Id" controls="controls"></audio>
+        </dd>
+
+      @* <dt>
+        @Html.DisplayNameFor(model => model.Genre)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Genre)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Clerk)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Clerk)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.AlbumsCount)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.AlbumsCount)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.AlbumNames)
+    </dt>
+
+    <dd>
+        @foreach (var item in Model.AlbumNames)
+        {
+            <span>@item</span><br />
+        }
+    </dd>
+    *@ 
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to list of tracks", "Index") |
+    @Html.ActionLink("Back to list of albums", "Index", "Albums")
+</p>
