@@ -1,0 +1,139 @@
+﻿@model Assignment7.Controllers.ArtistWithMediaInfo
+
+@{
+    ViewBag.Title = "DetailsWithMediaInfo";
+}
+
+<h2>DetailsWithMediaInfo</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthName)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthOrStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthOrStartDate)
+            <hr>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlArtist)
+        </dt>
+
+        <dd>
+            <img src="@Model.UrlArtist" alt="" style="width: 150px;" />
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile)
+        </dt>
+
+        <dd>
+            <div class="panel panel-default panel-body">
+                @Html.Raw(Model.Profile)
+            </div>
+            <hr>
+        </dd>
+
+        <dt>
+            Photos
+        </dt>
+
+        <dd>
+            @if (Model.MediaItems.Count() == 0)
+            {
+                <span>(none)</span>
+            }
+            else
+            {
+                foreach (var item in Model.MediaItems.Where(m => m.ContentType.Contains("image/")))
+                {
+                        <div>
+                            <span>@item.Caption</span>
+                            <img src="~/image/@item.StringId" alt="@item.Caption" title="@item.Caption" width="200">
+                        </div>
+                }
+            }
+            <hr>
+        </dd>
+        <dt>
+            Media
+        </dt>
+        <dd>
+            @if (Model.MediaItems.Count() == 0)
+            {
+                <span>(none)</span>
+            }
+            else
+            {
+                foreach (var item in Model.MediaItems.Where(m => m.ContentType.Contains("clip/")))
+                {
+                    <div class="col-md-4 col-sm-5 col-xs-10">
+                        <span>@item.Caption</span><br>
+                        <img src="~/media/@item.StringId" alt="@item.Caption" title="@item.Caption" class="img-responsive img-rounded">
+                    </div>
+                }
+            }
+            <hr>
+        </dd>
+
+        <dt>
+            Documents
+        </dt>
+        <dd>
+            @*@foreach (var item in Model.MediaItems.Where(m => m.ContentType.Contains("docx/")))
+            {                <div>
+                <span>@item.Caption</span>
+                <audio src="/docx/@Model.Id" controls="controls"></audio>
+                                 <img src="C:\Users\Daria\Desktop\Assignment9\icon-word.png" alt="@item.Caption" title="@item.Caption" class="img-responsive img-rounded">
+            </div>
+            }
+            }
+
+            @foreach (var item in Model.MediaItems.Where(m => m.ContentType.Contains("pdf/")))
+            {                <div>
+                <span>@item.Caption</span>
+                <audio src="/pptx/@Model.Id" controls="controls"></audio>
+                <img src="C:\Users\Daria\Desktop\Assignment9\icon-pdf.png" alt="@item.Caption" title="@item.Caption" class="img-responsive img-rounded">
+            </div>
+            }
+            }*@
+
+            <hr>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

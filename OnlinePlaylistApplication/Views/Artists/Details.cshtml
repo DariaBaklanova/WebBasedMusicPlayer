@@ -1,0 +1,76 @@
+﻿@model Assignment7.Controllers.ArtistWithDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details - @Model.Name</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthName)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthOrStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthOrStartDate)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlArtist)
+        </dt>
+
+        <dd>
+            <img src="@Model.UrlArtist" alt="" style="width: 150px;" />
+            @*@Html.DisplayFor(model => model.UrlArtist)*@
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile)
+        </dt>
+
+        <dd>
+            <div class="panel panel-default panel-body">
+                @Html.Raw(Model.Profile)
+            </div>
+            <hr>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Add album for this artist", "AddAlbum", new { id = Model.Id }) | 
+    @Html.ActionLink("Add media for this artist", "AddMediaItem", new { id = Model.Id }) |
+</p>
