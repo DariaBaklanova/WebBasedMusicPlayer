@@ -1,0 +1,76 @@
+﻿@model Assignment7.Controllers.AlbumWithDetails
+
+@{
+    ViewBag.Title = "Album details";
+}
+
+<h2>Details - @Model.Name</h2>
+
+<div>
+    <h4>Album details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlAlbum)
+        </dt>
+
+        <dd>
+            <img src="@Model.UrlAlbum" alt="" style="width: 150px;" />
+            @*@Html.DisplayFor(model => model.UrlAlbum)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coordinator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coordinator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TracksCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TracksCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtistsCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtistsCount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Add track to this album", "AddTrack", new { id = Model.Id })
+</p>
